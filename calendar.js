@@ -104,7 +104,7 @@
         this.x =
         `
           <div class="dateFrame" style="position:relative; height:75px; background:white;">
-          <img src="newYear.png">
+          <img src="asset/newYear.png">
             ${((val === this._day )? this.y: `<h1>${val}</h1>`)}
             <div class="test" style="position:absolute;bottom:0;">
             ${this.lunarInfo.lunarDay}

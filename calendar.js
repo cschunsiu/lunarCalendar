@@ -25,7 +25,7 @@
                  "July", "August", "September", "October", "November", "December"];
       this._daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
       this._daysInMonthLeap = [31,29 ,31,30,31,30,31,31,30,31,30,31];
-      this._offset = this.calOffSetOfMonth();
+      this._offset = this.calOffSetOfMonth(this._month);
     }
 
     connectedCallback() {
@@ -175,9 +175,8 @@
 
       }
 
-      calOffSetOfMonth(){
-        let month = new Date().getMonth()+1;
-        return new Date(`${month} 1,${this._year}`).getDay();
+      calOffSetOfMonth(month){
+        return new Date(this._year,month,1).getDay();
       }
 
       set year(val){

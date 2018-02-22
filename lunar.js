@@ -195,7 +195,7 @@ function calElement(sYear,sMonth,sDay,week,lYear,lMonth,lDay,isLeap,cYear,cMonth
   this.lunarMonth    = cmonthName[lMonth - 1];
   this.lunarYear     = getAnimalYear(lYear);
 
-  this.lunarFestival = ((lMonth == 1 && lDay == 1)? "春節":""); //农历节日
+  this.lunarFestival = ""; //农历节日
   this.solarFestival = ''; //公历节日
   this.solarTerms    = ''; //节气
 }

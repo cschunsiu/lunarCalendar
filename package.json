@@ -1,11 +1,9 @@
 {
   "name": "chinese-calendar",
   "version": "1.0.0",
-  "description": "",
-  "main": "calendar.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  "description": "easy lunar calendar",
+  "main": "index.html",
+  "repository": "https://github.com/cschunsiu/lunarCalendar",
+  "author": "Rex Yu <chunyu1991316@gmail.com>",
+  "license": "MIT"
 }

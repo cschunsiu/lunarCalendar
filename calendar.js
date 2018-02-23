@@ -30,6 +30,8 @@
 
     connectedCallback() {
       console.log(solar2lunar(new Date()));
+        this.year = this._year;
+        this.month = this._month;
         const _style =
         `
         <style>
@@ -96,7 +98,7 @@
         `
         const _template =
         `
-        <div class="container" year="${this._year}">
+        <div class="container">
           <section class="monthAndYr"><img src=${this._animal[this._lunarInfo.lunarYear]}><h1>${this._monthNames[this._month]} ${this._month+1}月 ${this._year}</h1></section>
           <section class="daysOfWeek">
           </section>
@@ -181,6 +183,12 @@
 
       set year(val){
         this._year = val;
+        this.setAttribute('year', this._year);
+      }
+
+      set month(val){
+        this._month = val;
+        this.setAttribute('month', this._month+1);
       }
   };
 

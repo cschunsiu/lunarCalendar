@@ -1,5 +1,6 @@
 # lunarCalendar
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/cschunsiu/lunarCalendar)
 [demo](https://cschunsiu.github.io/lunarCalendar/)
 ## About
 easy to implement calendar element and customize it

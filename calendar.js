@@ -26,6 +26,7 @@
       this._daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
       this._daysInMonthLeap = [31,29 ,31,30,31,30,31,31,30,31,30,31];
       this._offset = this.calOffSetOfMonth(this._month);
+      this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {
@@ -35,61 +36,61 @@
         const _style =
         `
         <style>
-          .container {
+          :host div.container {
             box-shadow: 10px 5px 20px -3px black;
             max-width: 600px;
             text-align: center;
           }
-          .circle {
+          :host .circle {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             background: red;
             position: absolute;
           }
-          .circle2 {
+          :host .circle2 {
             width: 50%;
             height: 50%;
             border-radius: 50%;
             background: white;
             margin-left: 25%;
           }
-          .daysOfWeek {
+          :host .daysOfWeek {
             background-color: lightskyblue;
             display: grid;
             grid-template-columns: repeat(7, auto);
           }
-          .content {
+          :host .content {
             grid-gap: 5px;
             position: relative;
             display: grid;
             grid-template-columns: repeat(7, auto);
           }
-          .bg1 {
+          :host .bg1 {
             background: gray;
             position: absolute;
             width: 100%;
             height: 100%;
           }
-          .monthAndYr{
+          :host .monthAndYr{
             display: flex;
             align-items: center;
             justify-content: space-evenly;
           }
-          .monthAndYr img{
+          :host .monthAndYr img{
             height:100px;
           }
-          .dateFrame{
+          :host .dateFrame{
             position:relative;
             height:75px;
             background:white;
             border-radius:10px;
           }
-          .dateFrame .chi-date{
+          :host .dateFrame .chi-date{
             position:absolute;
             bottom:0;
           }
-          .dateFrame .chi-climate-change{
+          :host .dateFrame .chi-climate-change{
             position:absolute;
             bottom:0;
             right:0;
@@ -109,7 +110,7 @@
         `;
 
         //create the component with style
-        this.innerHTML = _style + _template;
+        this.shadowRoot.innerHTML = _style + _template;
 
         //fill out the days in a week on the calendar
         for (var property in this._dayOfWeek) {
@@ -125,7 +126,7 @@
         let day = document.createElement('section');
         day.innerHTML = val + `<br>` +  this._dayOfWeek[val];
         let newDay = day.cloneNode(true);
-        document.querySelector(".daysOfWeek").appendChild(newDay);
+        this.shadowRoot.querySelector(".daysOfWeek").appendChild(newDay);
       }
 
       fillCalInfo(){
@@ -162,17 +163,17 @@
 
         //set the offset position for the first day of the month and the rest will be position wrapping after the first date
         if(val == 1){
-          document.querySelector(".content").innerHTML += this.dateTemp;
-          document.querySelector(".dateFrame").style.gridColumnStart = this._offset+1;
-          document.querySelector(".dateFrame").style.gridColumnEnd = this._offset+2;
+          this.shadowRoot.querySelector(".content").innerHTML += this.dateTemp;
+          this.shadowRoot.querySelector(".dateFrame").style.gridColumnStart = this._offset+1;
+          this.shadowRoot.querySelector(".dateFrame").style.gridColumnEnd = this._offset+2;
         }else{
-          document.querySelector(".content").innerHTML += this.dateTemp;
+          this.shadowRoot.querySelector(".content").innerHTML += this.dateTemp;
         }
 
         //change background of the date if it is the first day of chinese new year
         if(this.lunarInfo.lDay == 1 && this.lunarInfo.lMonth == 1){
-          document.querySelectorAll(".dateFrame")[val-1].style.background = 'url(asset/newYear.png) white';
-          document.querySelectorAll(".dateFrame")[val-1].style.backgroundSize = '100% 100%';
+          this.shadowRoot.querySelectorAll(".dateFrame")[val-1].style.background = 'url(asset/newYear.png) white';
+          this.shadowRoot.querySelectorAll(".dateFrame")[val-1].style.backgroundSize = '100% 100%';
         }
 
       }

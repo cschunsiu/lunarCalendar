@@ -1,23 +1,22 @@
 {
-  "name": "lunarCalendar",
-  "homepage": "https://github.com/cschunsiu/lunarCalendar",
+  "name": "chinese-calendar",
+  "description": "easy lunar calendar",
+  "main": "index.html",
   "authors": [
-    "chunyu1991316@gmail.com"
-  ],
-  "description": "Lightweight v1 custom element calendar",
-  "main": "calendar.js",
-  "keywords": [
-    "html",
-    "web",
-    "custom",
-    "element",
-    "calendar",
-    "lunar",
+    "Rex Yu <chunyu1991316@gmail.com>"
   ],
   "license": "MIT",
+  "keywords": [
+    "calendar",
+    "lunar",
+    "chinese"
+  ],
+  "homepage": "https://github.com/cschunsiu/lunarCalendar",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "test",
+    "tests"
   ]
 }
